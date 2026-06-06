@@ -20,7 +20,7 @@ export default function CollegeChat({ collegeContext }: { collegeContext: string
 
     const response = await chatWithGemini(userMessage, collegeContext);
     
-    setMessages(prev => [...prev, { role: 'ai', text: response }]);
+    setMessages(prev => [...prev, { role: 'ai', text: response || "I'm sorry, I could not generate a response." }]);
     setLoading(false);
   };
 

@@ -1,0 +1,102 @@
+[debug] [2026-06-06T07:52:55.934Z] ----------------------------------------------------------------------
+[debug] [2026-06-06T07:52:55.937Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Asus\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only hosting
+[debug] [2026-06-06T07:52:55.937Z] CLI Version:   15.11.0
+[debug] [2026-06-06T07:52:55.937Z] Platform:      win32
+[debug] [2026-06-06T07:52:55.938Z] Node Version:  v24.14.0
+[debug] [2026-06-06T07:52:55.938Z] Time:          Sat Jun 06 2026 13:22:55 GMT+0530 (India Standard Time)
+[debug] [2026-06-06T07:52:55.938Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-06-06T07:52:55.940Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2026-06-06T07:53:03.975Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-06-06T07:53:03.976Z] > authorizing via signed-in user (so1111mebody@gmail.com)
+[debug] [2026-06-06T07:53:03.976Z] [iam] checking project minor-4edc7 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2026-06-06T07:53:03.978Z] Checked if tokens are valid: false, expires at: 1780321935024
+[debug] [2026-06-06T07:53:03.978Z] Checked if tokens are valid: false, expires at: 1780321935024
+[debug] [2026-06-06T07:53:03.979Z] > refreshing access token with scopes: []
+[debug] [2026-06-06T07:53:03.981Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-06-06T07:53:03.981Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-06T07:53:06.095Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-06-06T07:53:06.096Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-06-06T07:53:06.118Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/minor-4edc7:testIamPermissions [none]
+[debug] [2026-06-06T07:53:06.118Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/minor-4edc7:testIamPermissions  x-goog-user-project=minor-4edc7
+[debug] [2026-06-06T07:53:06.119Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/minor-4edc7:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-06-06T07:53:06.654Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2026-06-06T07:53:06.655Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2026-06-06T07:53:07.808Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/minor-4edc7:testIamPermissions 200
+[debug] [2026-06-06T07:53:07.808Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/minor-4edc7:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-06-06T07:53:07.809Z] Checked if tokens are valid: true, expires at: 1780735985096
+[debug] [2026-06-06T07:53:07.809Z] Checked if tokens are valid: true, expires at: 1780735985096
+[debug] [2026-06-06T07:53:07.810Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/minor-4edc7 [none]
+[debug] [2026-06-06T07:53:08.916Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/minor-4edc7 200
+[debug] [2026-06-06T07:53:08.917Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/minor-4edc7 {"projectId":"minor-4edc7","projectNumber":"179490470155","displayName":"minor","name":"projects/minor-4edc7","resources":{"hostingSite":"minor-4edc7"},"state":"ACTIVE","etag":"1_fc21da10-4eeb-47c3-89bb-5f3409c450cd"}
+[debug] [2026-06-06T07:53:11.386Z] Checked if tokens are valid: true, expires at: 1780735985096
+[debug] [2026-06-06T07:53:11.387Z] Checked if tokens are valid: true, expires at: 1780735985096
+[debug] [2026-06-06T07:53:11.387Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/minor-4edc7/sites pageToken=&pageSize=10
+[debug] [2026-06-06T07:53:12.785Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/minor-4edc7/sites 200
+[debug] [2026-06-06T07:53:12.785Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/minor-4edc7/sites {"sites":[{"name":"projects/minor-4edc7/sites/minor-4edc7","defaultUrl":"https://minor-4edc7.web.app","appId":"1:179490470155:web:00343b847fee98cf608a0e","type":"DEFAULT_SITE"}]}
+[debug] [2026-06-06T07:53:12.788Z] Checked if tokens are valid: true, expires at: 1780735985096
+[debug] [2026-06-06T07:53:12.788Z] Checked if tokens are valid: true, expires at: 1780735985096
+[debug] [2026-06-06T07:53:12.788Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:179490470155:web:00343b847fee98cf608a0e/config [none]
+[debug] [2026-06-06T07:53:14.096Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:179490470155:web:00343b847fee98cf608a0e/config 200
+[debug] [2026-06-06T07:53:14.096Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:179490470155:web:00343b847fee98cf608a0e/config {"projectId":"minor-4edc7","appId":"1:179490470155:web:00343b847fee98cf608a0e","storageBucket":"minor-4edc7.firebasestorage.app","apiKey":"AIzaSyCPM1uRfxHkweh9zgM-orv7y8tHRvZf83I","authDomain":"minor-4edc7.firebaseapp.com","messagingSenderId":"179490470155","measurementId":"G-DGCTBP90LG","projectNumber":"179490470155","version":"2"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+   The integration is known to work with Next.js version 12 - 15.0. You may encounter errors.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[debug] [2026-06-06T07:53:19.257Z] Checked if tokens are valid: true, expires at: 1780735985096
+[debug] [2026-06-06T07:53:19.257Z] Checked if tokens are valid: true, expires at: 1780735985096
+[debug] [2026-06-06T07:53:19.257Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/minor-4edc7/sites/minor-4edc7 [none]
+[debug] [2026-06-06T07:53:20.602Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/minor-4edc7/sites/minor-4edc7 200
+[debug] [2026-06-06T07:53:20.602Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/minor-4edc7/sites/minor-4edc7 {"name":"projects/minor-4edc7/sites/minor-4edc7","defaultUrl":"https://minor-4edc7.web.app","appId":"1:179490470155:web:00343b847fee98cf608a0e","type":"DEFAULT_SITE"}
+[info] ⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of C:\Users\Asus\.vscode\package-lock.json as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * C:\Users\Asus\.vscode\task2\package-lock.json
+
+
+[info] ▲ Next.js 16.2.6 (Turbopack)
+
+[info] - Environments: .env
+
+
+[info]   Creating an optimized production build ...
+
+[info] ✓ Compiled successfully in 4.1s
+
+[info]   Running TypeScript ...
+
+[info] Failed to type check.
+
+
+[info] ./src/app/colleges/[id]/CollegeChat.tsx:23:17
+Type error: Argument of type '(prev: { role: "user" | "ai"; text: string; }[]) => ({ role: "user" | "ai"; text: string; } | { role: "ai"; text: string | undefined; })[]' is not assignable to parameter of type 'SetStateAction<{ role: "user" | "ai"; text: string; }[]>'.
+  Type '(prev: { role: "user" | "ai"; text: string; }[]) => ({ role: "user" | "ai"; text: string; } | { role: "ai"; text: string | undefined; })[]' is not assignable to type '(prevState: { role: "user" | "ai"; text: string; }[]) => { role: "user" | "ai"; text: string; }[]'.
+    Type '({ role: "user" | "ai"; text: string; } | { role: "ai"; text: string | undefined; })[]' is not assignable to type '{ role: "user" | "ai"; text: string; }[]'.
+      Type '{ role: "user" | "ai"; text: string; } | { role: "ai"; text: string | undefined; }' is not assignable to type '{ role: "user" | "ai"; text: string; }'.
+        Type '{ role: "ai"; text: string | undefined; }' is not assignable to type '{ role: "user" | "ai"; text: string; }'.
+          Types of property 'text' are incompatible.
+            Type 'string | undefined' is not assignable to type 'string'.
+              Type 'undefined' is not assignable to type 'string'.
+
+  21 |     const response = await chatWithGemini(userMessage, collegeContext);
+  22 |     
+> 23 |     setMessages(prev => [...prev, { role: 'ai', text: response }]);
+     |                 ^
+  24 |     setLoading(false);
+  25 |   };
+  26 |
+
+[info] Next.js build worker exited with code: 1 and signal: null
+
+[debug] [2026-06-06T07:53:30.416Z] Error: ENOENT: no such file or directory, open 'C:\Users\Asus\.vscode\task2\.next\export-marker.json'
+[error] 
+[error] Error: An unexpected error has occurred.
