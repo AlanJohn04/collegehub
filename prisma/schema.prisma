@@ -1,0 +1,129 @@
+datasource db {
+  provider = "postgresql"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Account {
+  id                 String  @id @default(cuid())
+  userId             String
+  type               String
+  provider           String
+  providerAccountId  String
+  refresh_token      String?  @db.Text
+  access_token       String?  @db.Text
+  expires_at         Int?
+  token_type         String?
+  scope              String?
+  id_token           String?  @db.Text
+  session_state      String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+  accounts      Account[]
+  sessions      Session[]
+  savedColleges SavedCollege[]
+  reviews       Review[]
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model College {
+  id             String   @id @default(cuid())
+  name           String
+  location       String
+  description    String?  @db.Text
+  fees           Float
+  rating         Float    @default(0.0)
+  imageUrl       String?
+  placement      Float    @default(0.0)
+  averagePackage Float    @default(0.0)
+  highestPackage Float    @default(0.0)
+  
+  courses       Course[]
+  reviews       Review[]
+  savedColleges SavedCollege[]
+  questions     Question[]
+}
+
+model Course {
+  id          String   @id @default(cuid())
+  name        String
+  duration    String
+  fees        Float
+  collegeId   String
+  college     College  @relation(fields: [collegeId], references: [id], onDelete: Cascade)
+}
+
+model Review {
+  id          String   @id @default(cuid())
+  rating      Float
+  comment     String   @db.Text
+  userId      String
+  collegeId   String
+  createdAt   DateTime @default(now())
+
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  college     College  @relation(fields: [collegeId], references: [id], onDelete: Cascade)
+}
+
+model SavedCollege {
+  id          String   @id @default(cuid())
+  userId      String
+  collegeId   String
+  createdAt   DateTime @default(now())
+
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  college     College  @relation(fields: [collegeId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, collegeId])
+}
+
+model Question {
+  id        String   @id @default(cuid())
+  title     String
+  body      String   @db.Text
+  authorId  String   
+  authorName String
+  createdAt DateTime @default(now())
+  
+  answers   Answer[]
+  collegeId String?
+  college   College? @relation(fields: [collegeId], references: [id], onDelete: Cascade)
+}
+
+model Answer {
+  id         String   @id @default(cuid())
+  body       String   @db.Text
+  authorId   String   
+  authorName String
+  createdAt  DateTime @default(now())
+  
+  questionId String
+  question   Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+}
